@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Multi-Agent Visual Sandbox</title>
+<style>
+  :root { color-scheme: dark; }
+  body {
+    margin: 0;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    background: #0b0e14;
+    color: #e6e6e6;
+    padding: 24px;
+  }
+  h1 { font-size: 18px; font-weight: 600; margin: 0 0 4px; }
+  p.sub { color: #8a8f98; margin: 0 0 20px; font-size: 13px; }
+
+  .graph {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .node {
+    flex: 1;
+    border: 1px solid #2a2f3a;
+    border-radius: 10px;
+    padding: 14px;
+    background: #12151c;
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+  .node.active {
+    border-color: #5ec8f8;
+    box-shadow: 0 0 16px rgba(94, 200, 248, 0.35);
+  }
+  .node .name { font-weight: 600; text-transform: capitalize; }
+  .node .state { font-size: 12px; color: #8a8f98; margin-top: 4px; min-height: 16px; }
+
+  .log {
+    border: 1px solid #2a2f3a;
+    border-radius: 10px;
+    background: #0f1219;
+    padding: 12px 16px;
+    height: 320px;
+    overflow-y: auto;
+  }
+  .log-line { font-size: 13px; padding: 3px 0; border-bottom: 1px solid #1a1e27; }
+  .log-line .agent { color: #5ec8f8; margin-right: 8px; }
+  .log-line .type { color: #6f7683; margin-right: 8px; }
+</style>
+</head>
+<body>
+  <h1>Multi-Agent Visual Sandbox</h1>
+  <p class="sub">Live event stream over SSE — refresh to start a new run.</p>
+
+  <div class="graph" id="graph"></div>
+  <div class="log" id="log"></div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
